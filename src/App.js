@@ -12,7 +12,8 @@ import axios from "axios";
 import { useEffect } from "react";
 function App() {
   useEffect(() => {
-    axios.defaults.baseURL = "https://resume-builder-l1gt.onrender.com/api";
+    // axios.defaults.baseURL = "https://resume-builder-l1gt.onrender.com/api";
+    axios.defaults.baseURL = "http://localhost:3000/api";
     axios.defaults.withCredentials = true;
   }, []);
 
