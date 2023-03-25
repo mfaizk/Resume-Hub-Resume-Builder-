@@ -27,7 +27,7 @@ export const signin = async (d) => {
         email: email,
         password: password,
       },
-      { withCredentials: true, credentials: "include" }
+      { withCredentials: true }
     );
     // console.log(response.data);
     toast.success(response.data.msg);
