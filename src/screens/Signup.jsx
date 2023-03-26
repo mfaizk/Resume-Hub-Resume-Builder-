@@ -15,7 +15,6 @@ const Signup = () => {
   const [confPassError, setConfPassError] = useState("");
   const [formError, setFormError] = useState({});
   const loading = useLoadingStore((state) => state.loading);
-  const setLoading = useLoadingStore((state) => state.setLoading);
   // const [isSubmitted, setIsSubmitted] = useState(false);
 
   const checkValidation = (e) => {
