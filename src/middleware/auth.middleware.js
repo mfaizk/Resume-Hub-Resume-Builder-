@@ -1,10 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
-import BuildResumeForm from "../screens/BuildResumeForm";
-import HomeScreen from "../screens/HomeScreen";
-import ResumePreviewScreen from "../screens/ResumePreviewScreen";
-import SavedDataList from "../screens/SavedDataList";
+import { Outlet, useNavigate } from "react-router";
 
 const authcheck = async () => {
   try {
@@ -18,14 +14,14 @@ const authcheck = async () => {
 };
 
 export const AuthChecker = (props) => {
+  const { children } = props;
   const nav = useNavigate();
   const [data, setData] = useState("");
-  const location = useLocation();
   useEffect(() => {
     (async () => {
       setData(await authcheck());
     })();
-
+    console.log(children);
     // eslint-disable-next-line
   }, []);
 
@@ -67,14 +63,9 @@ export const AuthChecker = (props) => {
     );
   }
 
-  switch (location.pathname) {
-    case "/auth/buildResumeForm":
-      return <BuildResumeForm />;
-    case "/auth/data":
-      return <SavedDataList />;
-    case "/auth/build":
-      return <ResumePreviewScreen />;
-    default:
-      return <HomeScreen />;
-  }
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };

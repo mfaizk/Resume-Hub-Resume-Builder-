@@ -13,9 +13,10 @@ const SavedDataList = () => {
   useEffect(() => {
     const data = localStorage.getItem(user.email);
     if (!data) {
-      return toast.error("No Saved Data Found or User is not logged in");
+      toast.error("No Saved Data Found or User is not logged in");
+    } else {
+      setData(JSON.parse(data));
     }
-    setData(JSON.parse(data));
     // eslint-disable-next-line
   }, []);
   const handleSubmit = async () => {
